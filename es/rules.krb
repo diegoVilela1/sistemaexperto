@@ -1,0 +1,38 @@
+direct_batch_supplier
+    foreach
+        facts.batch_size($supplier,$units)
+    assert
+        facts.batch_supplier($units, $supplier, ())
+
+direct_batch_color
+    foreach
+        facts.batch_color($units,$color)
+    assert
+        facts.color_batch($color,$units, ())
+
+color_suppliers
+    foreach
+        facts.color_batch($color,$units, ())
+        facts.batch_supplier($units,$supplier, ())
+    assert
+        facts.color_supplier($color,$supplier,("2 level"))
+
+full_param
+    foreach
+        facts.batch_size($supplier,$units)
+        facts.batch_color($units,$color)
+    assert
+        facts.full_supplier_params($supplier,$units,$color,())
+
+direct_batch_product
+    foreach
+        facts.product_batch($sku,$units)
+    assert
+        facts.batch_product($units,$sku)
+
+product_colors
+    foreach
+        facts.batch_product($units,$sku)
+        facts.batch_size($supplier,$units)
+    assert
+        facts.supplier_product($supplier,$sku)
