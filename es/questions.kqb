@@ -1,0 +1,32 @@
+# questions.kqb
+
+batch_size($ans)
+	Que tamaño de lote
+	---
+	$ans = select_1
+		1: 16
+		2: 21
+		3: 36
+		4: 48
+		5: None of the above
+			! Thank goodness
+
+which_color($ans)
+	Choose a color
+	---
+	$ans = select_1
+		1: 16
+		2: 21
+		3: 36
+		4: 48
+		5: None of the above
+			! Thank goodness
+
+
+which_sku($ans)
+	Choose a color
+	---
+	$ans = select_1
+		1: SKU1
+		2: SKU2
+		3: SKU3

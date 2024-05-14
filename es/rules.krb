@@ -22,7 +22,7 @@ full_param
         facts.batch_size($supplier,$units)
         facts.batch_color($units,$color)
     assert
-        facts.full_supplier_params($supplier,$units,$color,())
+        facts.full_supplier_params($supplier,$units,$color,("2 level"))
 
 direct_batch_product
     foreach
@@ -35,4 +35,12 @@ product_colors
         facts.batch_product($units,$sku)
         facts.batch_size($supplier,$units)
     assert
-        facts.supplier_product($supplier,$sku)
+        facts.supplier_product($supplier,$sku, ("2 level"))
+
+supplier_product_color_batch
+    foreach
+        facts.supplier_product($supplier,$sku ,("2 level"))
+        facts.product_batch($sku,$units)
+        facts.batch_color($units,$color)
+    assert
+        facts.supplier_detail_product_color_batch($supplier,$sku,$units,$color, ("3 levels"))
